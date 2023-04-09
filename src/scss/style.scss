@@ -1,0 +1,425 @@
+@import 'fonts.scss';
+@import 'normalize.scss';
+@import 'components.scss';
+@import 'media.scss';
+
+
+//-------BURGER MENU-------
+.burger__menu{
+  display: none;
+  button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    right: 30px;
+    top: 20px;
+    z-index: 1000;
+  }
+  &-list{
+    position: fixed;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #EEEEEE;
+    width: max-content;
+    right: 30px;
+    top: -110%;
+    padding: 50px;
+    border-radius: 10px;
+    gap: 10px;
+    align-items: center;
+    transition: 700ms;
+    opacity: 0;
+    z-index: 1000;
+    a{
+      color: #000;
+    }
+    .btn{
+      color: #fff;
+      padding: 7px 17px;
+      margin-top: 20px;
+    }
+  }
+}
+.active-list{
+  top: 12%;
+  opacity: 1;
+}
+.menu {
+  --color: #F16214;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  position: relative;
+  border: none;
+  background: none;
+  cursor: pointer;
+  -webkit-appearence: none;
+  -webkit-tap-highlight-color: transparent;
+  svg {
+      width: 64px;
+      height: 48px;
+      top: -6px;
+      left: -14px;
+      stroke: var(--color);
+      stroke-width: 4px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      display: block;
+      position: absolute;
+      path {
+          transition: stroke-dasharray var(--duration, .85s) var(--easing, ease) var(--delay, 0s), stroke-dashoffset var(--duration, .85s) var(--easing, ease) var(--delay, 0s);
+          stroke-dasharray: var(--array-1, 26px) var(--array-2, 100px);
+          stroke-dashoffset: var(--offset, 126px);
+          transform: translateZ(0);
+          &:nth-child(2) {
+              --duration: .7s;
+              --easing: ease-in;
+              --offset: 100px;
+              --array-2: 74px;
+          }
+          &:nth-child(3) {
+              --offset: 133px;
+              --array-2: 107px;
+          }
+      }
+  }
+  &.active {
+      svg {
+          path {
+              --offset: 57px;
+              &:nth-child(1),
+              &:nth-child(3) {
+                  --delay: .15s;
+                  --easing: cubic-bezier(.2, .4, .2, 1.1);
+              }
+              &:nth-child(2) {
+                  --duration: .4s;
+                  --offset: 2px;
+                  --array-1: 1px;
+              }
+              &:nth-child(3) {
+                  --offset: 58px;
+              }
+          }
+      }
+  }
+}
+
+//-------HEADER-------
+.header{
+  max-width: 1920px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background: url(../assets/img/bg.png); 
+  margin: 0 auto;
+  .container{
+    max-width: 847px;
+  }
+  .nav__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    &-list{
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      a{
+        color: #000;
+        font-weight: 400;
+        transition: 300ms;
+        font-size: 16px;
+        &:hover{
+          color: $btn-c;
+          font-weight: 700;
+        }
+        
+      }
+      .active{
+        color: $btn-c;
+      }
+      .btn{
+        color: #fff;
+        padding: 7px 17px;
+        &:hover{
+          color: #fff;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  &__content{
+    height: 663px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+    h1{
+      font-size: 75px;
+    }
+    p{
+      padding: 15px 0 40px;
+    }
+    &-icons{
+      display: flex;
+      gap: 23px;
+      padding: 40px 0 0;
+    }
+  }
+  &__cards{
+    display: flex;
+    gap: 102px;
+    justify-content: center;
+    &.container{
+      max-width: 1170px;
+    }
+    &-card{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      padding: 60px 20px;
+      h3{
+          font-size: 16px;
+          padding: 16px 0 6px;
+      }
+      p{
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+//-------MAIN-------
+.work{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px 0 0;
+  &__text{
+    p{
+      padding: 45px 0 29px;
+      max-width: 570px;
+    }
+    a{
+      padding: 5px 5px 5px 16px;
+    }
+    span{
+      justify-content: flex-start;
+    }
+    .title{
+      text-align: left;
+    }
+  }
+}
+
+.service{
+  text-align: center;
+  padding: 50px 0 0;
+  &__cards{
+    padding: 59px 0 197px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    &-card{
+      width: 370px;
+      border: 2px solid #EEEEEE;
+      border-radius: 60px 0 60px;
+      padding: 70px 0px;
+      transition: 400ms;
+      &:hover{
+        border: 2px solid #fff;
+        box-shadow: 5px 15px 45px rgba(0, 0, 0, 0.1);
+      }
+      p{
+        line-height: 160%;
+      }
+      h3{
+        padding: 44px 0 22px;
+      }
+    }
+  }
+}
+
+.product{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 0 230px;
+  &__cards{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 0;
+    justify-content: center;
+    gap: 30px;
+    &-card{
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.07);
+      border-radius: 50px 0 50px;
+      .product-card-text{
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 19px 50px 19px;
+          h3{
+            padding: 0 0 19px;
+          }
+          .btn{
+            padding: 13px 19px;
+          }
+          .star{
+            padding: 33px 0 16px;
+          }
+      }
+    }
+  }
+}
+
+.mobile{
+  padding: 0 50px;
+  &-card{
+    border-radius: 60px 0 60px;
+    display: flex;
+    background: url(../assets/img/bg-mobile.png);
+    color: #fff;
+    position: relative;
+    &-text{
+      padding: 86px 29px;
+      p{
+        max-width: 500px;
+        margin: 15px 0 29px;
+      }
+      .mobile-btn{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding-top: 50px;
+      }
+      form{
+        display: flex;
+        .mobile__input{
+          position: relative;
+          width: 500px;
+          input{
+            border-radius: 13px;
+            padding: 20px 0 20px 19px;
+            width: 100%;
+            line-height: 19.5px;
+            font-size: 13px;
+            outline: none;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+          }
+          .btn{
+            padding: 13px 22px;
+            border-radius: 13px;
+            position: absolute;
+            outline: none;
+            border: none;
+            right: 5px;
+            top: 7px;
+            font-size: 16px;
+            line-height: 24px;
+            cursor: pointer;
+            &:hover{
+              transform: scale(1.0);
+            }
+          }
+        }
+      }
+      
+    }
+    &.burger-card{
+      justify-content: flex-end;
+    }
+    .mobile-img{
+      position: absolute;
+      left: 40%;
+      top: -35%;
+      &.burger{
+        left: 0;
+        top: -55px;
+        width: 460px;
+      }
+    }
+  }
+}
+
+.testim{
+  padding: 197px 15px 78px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  > img {
+    position: absolute;
+    top: 20%;
+    left: 0;
+  }
+  &-content{
+    padding: 120px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    .testim-text{
+      .testim-user{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
+      .descr{
+        text-align: center;
+        line-height: 150%;
+        padding: 54px 0 34px;
+      }
+      .testim-btn{
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+    }
+    > img{
+      width: 42%;
+    }
+  }
+}
+
+//-------FOOTER-------
+.footer{
+  background-color: #F5F5F5;
+  margin-top: 100px;
+  &-title{
+    font-size: 22px;
+    padding: 0 0 36px;
+  }
+  &__content{
+    display: flex;
+    justify-content: center;
+    padding: 100px 50px 159px 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    p, a{
+      line-height: 200%;
+      font-size: 13px;
+    }
+    &-descr{
+      display: flex;
+      flex-direction: column;
+      gap: 33px;
+      &-icons{
+        display: flex;
+        gap: 23px;
+
+      }
+    }
+  }
+}
